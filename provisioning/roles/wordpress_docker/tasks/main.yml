@@ -1,0 +1,58 @@
+#- name: Install Pip.
+#  apt: name=python-pip state=installed
+#  sudo: yes
+#
+#- name: Install Docker Python library.
+#  pip: name=docker-py state=present
+#  sudo: yes
+
+- name: Installing docker-compose
+  shell: >
+    curl -sL https://github.com/docker/compose/releases/download/1.3.3/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  args:
+    creates: /usr/local/bin/docker-compose
+
+- name: Setting permissions docker-compose binary
+  file:
+    path: /usr/local/bin/docker-compose
+    group: root
+    owner: root
+    mode: 0755
+
+#- name: wordress container
+#  docker:
+#    docker_api_version: "1.16"
+#    name: wordpress
+#    image: wordpress
+#    state: present
+#
+#- name: db container
+#  docker:
+#    docker_api_version: "1.16"
+#    name: mariadb
+#    image: mariadb
+#    state: present
+#    env: "MYSQL_ROOT_PASSWORD=example"
+
+- name: docker-compose config files are present
+  template: src=docker-compose.yml dest=/root/docker-compose.yml
+  with_items: templates
+  register: result
+  tags: [docker-compose]
+
+- name: Pull docker containers
+  shell: docker-compose pull
+  args:
+    chdir: /root/
+  tags: [docker-compose]
+
+- name: Start docker containers
+  shell: docker-compose up &
+  args:
+    chdir: /root/
+  tags: [docker-compose]
+
+
+
+
+

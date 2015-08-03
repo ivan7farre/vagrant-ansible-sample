@@ -1,0 +1,4 @@
+
+- name:  Creating user "{{ username }}"
+  user: name={{ username }} password={{password}} update_password=always shell=/bin/bash createhome=yes
+        system=yes comment="Developer user" state=present

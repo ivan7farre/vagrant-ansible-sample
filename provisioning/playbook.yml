@@ -1,0 +1,24 @@
+- hosts: serverdev 
+
+  remote_user: vagrant
+  #gather_facts: yes
+
+  vars_files:
+    - vars/main.yml
+  
+  # Gotcha
+  pre_tasks:
+   - name: test connection
+     ping:
+
+  roles:
+    #- user
+    # cloudify.postgres
+    #- postgres
+    - install_docker
+    - wordpress_docker
+    - geerlingguy.nginx
+
+
+  post_tasks:
+   - shell: echo 'goodbye'

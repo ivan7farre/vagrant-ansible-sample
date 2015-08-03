@@ -1,0 +1,23 @@
+galaxy_info:
+  author: "Marten Klitzke"
+  description: A simple role to create a Database with a new Postgres user. Optional activate HStore Extension for the new Database.
+  license: MIT
+  min_ansible_version: 1.4
+  version: 1.3
+  platforms:
+    - name: Debian
+      versions:
+      - etch
+      - lenny
+      - squeeze
+      - wheezy
+    - name: Ubuntu
+      versions:
+      - precise
+      - quantal
+      - raring
+      - saucy
+  categories:
+   - database
+   - database:sql
+dependencies: []
