@@ -48,7 +48,7 @@ nginx_upstreams: #[]
    name: wordpress,
    strategy: "ip_hash", 
    servers: {
-     "127.0.0.1:8080"
+     "192.168.10.10:8080"
    }
 # - {
 #   name: myapp1,
