@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 MEMORY=512
 
 # the instances prefix to the subnet that they use
-SUBNET="192.168.1"
+SUBNET="192.168.10"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
