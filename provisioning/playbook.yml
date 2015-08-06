@@ -14,9 +14,10 @@
   roles:
     - user
     - ANXS.postgresql
+    - geerlingguy.nginx
     - install_docker
     - wordpress_docker
-    - geerlingguy.nginx
+ 
 
 
   post_tasks:
