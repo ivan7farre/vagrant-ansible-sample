@@ -1,5 +1,0 @@
----
-pg_db: wordpressdb 
-pg_user: wordpressdb
-pg_password: wordpressdb
-pg_hstore: False

@@ -12,9 +12,8 @@
      ping:
 
   roles:
-    #- user
-    # cloudify.postgres
-    #- postgres
+    - user
+    - ANXS.postgresql
     - install_docker
     - wordpress_docker
     - geerlingguy.nginx

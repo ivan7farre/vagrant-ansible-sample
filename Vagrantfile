@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Set hostname & network basics.
     vmconfig.vm.hostname = "serverdev"
     vmconfig.vm.network :private_network, ip: "#{SUBNET}.10"
-    vmconfig.vm.network :forwarded_port, guest: 80, host: 81
+    vmconfig.vm.network :forwarded_port, guest: 80, host: 8080
     vmconfig.vm.network :forwarded_port, guest: 8080, host: 8081
     vmconfig.ssh.forward_agent = true
     vmconfig.ssh.insert_key    = false
